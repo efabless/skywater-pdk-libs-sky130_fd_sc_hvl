@@ -19,7 +19,7 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
     capacitive_load_unit(1.0000000000, "pf");
     revision : 1.0000000000;
     default_cell_leakage_power : 0.0000000000;
-    default_fanout_load : 0.0000000000;
+    default_fanout_load : 1.0000000000;
     default_inout_pin_cap : 0.0000000000;
     default_input_pin_cap : 0.0000000000;
     default_max_transition : 3.7500000000;
@@ -29,12 +29,65 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
     default_leakage_power_density : 0.0000000000;
     default_operating_conditions : "hvff_lvss_100C_5v50_lv1v40";
     clk_width : "0.0000000400";
-    operating_conditions ("hvff_lvss_100C_5v50") {
+    operating_conditions ("hvff_lvss_100C_5v50_lv1v40") {
         voltage : 5.5000000000;
         process : 1.0000000000;
         temperature : 100.00000000;
         tree_type : "balanced_tree";
     }
+    /* Wire load tables */
+
+    wire_load("Small") {
+      capacitance : 1.42e-05;
+      resistance : 0.0745;
+      slope : 8.3631;
+      fanout_length( 1, 23.2746);
+      fanout_length( 2, 32.1136);
+      fanout_length( 3, 48.4862);
+      fanout_length( 4, 64.0974);
+      fanout_length( 5, 86.2649);
+      fanout_length( 6, 84.2649);
+    }
+
+    wire_load("Medium") {
+      capacitance : 1.42e-05;
+      resistance : 0.0745;
+      slope : 8.3631;
+      fanout_length( 1, 23.2746);
+      fanout_length( 2, 32.1136);
+      fanout_length( 3, 48.4862);
+      fanout_length( 4, 64.0974);
+      fanout_length( 5, 86.2649);
+      fanout_length( 6, 84.2649);
+    }
+
+    wire_load("Large") {
+      capacitance : 1.42e-05;
+      resistance : 0.0745;
+      slope : 8.3631;
+      fanout_length( 1, 23.2746);
+      fanout_length( 2, 32.1136);
+      fanout_length( 3, 48.4862);
+      fanout_length( 4, 64.0974);
+      fanout_length( 5, 86.2649);
+      fanout_length( 6, 84.2649);
+    }
+
+    wire_load("Huge") {
+      capacitance : 1.42e-05;
+      resistance : 0.0745;
+      slope : 8.3631;
+      fanout_length( 1, 23.2746);
+      fanout_length( 2, 32.1136);
+      fanout_length( 3, 48.4862);
+      fanout_length( 4, 64.0974);
+      fanout_length( 5, 86.2649);
+      fanout_length( 6, 84.2649);
+    }
+
+    default_wire_load : "Small" ;
+    default_wire_load_mode : top;
+
     power_lut_template ("hidden_pwr_template11") {
         variable_1 : "input_transition_time";
         index_1("1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11");
@@ -354,22 +407,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -518,22 +571,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -680,22 +733,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -867,22 +920,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -1055,22 +1108,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -1250,22 +1303,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -1550,22 +1603,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
@@ -1842,22 +1895,22 @@ library ("sky130_fd_sc_hvl__hvff_lvss_100C_5v50_lv1v40") {
         }
         pg_pin ("VGND") {
             pg_type : "primary_ground";
-            related_bias_pin : "VPB";
+            related_bias_pin : "VNB";
             voltage_name : "VGND";
         }
         pg_pin ("VNB") {
-            pg_type : "nwell";
+            pg_type : "pwell";
             physical_connection : "device_layer";
             voltage_name : "VNB";
         }
         pg_pin ("VPB") {
-            pg_type : "pwell";
+            pg_type : "nwell";
             physical_connection : "device_layer";
             voltage_name : "VPB";
         }
         pg_pin ("VPWR") {
             pg_type : "primary_power";
-            related_bias_pin : "VNB";
+            related_bias_pin : "VPB";
             voltage_name : "VPWR";
         }
         pin ("A") {
