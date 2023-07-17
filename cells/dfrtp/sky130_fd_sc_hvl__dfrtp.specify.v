@@ -22,7 +22,7 @@ specify
 $width (posedge CLK &&& (RESET_B===1'b1) , 0:0:0, 0, notifier);
 $width (negedge CLK &&& (RESET_B===1'b1) , 0:0:0, 0, notifier);
 $width (negedge RESET_B , 0:0:0 , 0 , notifier ) ;
-$recrem ( posedge RESET_B , posedge CLK , 0:0:0, 0:0:0, notifier , , , RESETB_delayed , CLK_delayed ) ;
-$setuphold ( posedge CLK , posedge D , 0:0:0, 0:0:0, notifier , , COND0 , CLK_delayed , D_delayed ) ;
-$setuphold ( posedge CLK , negedge D , 0:0:0, 0:0:0, notifier , , COND0 , CLK_delayed , D_delayed ) ;
+$recrem ( posedge RESET_B , posedge CLK , 0:0:0, 0:0:0, notifier , , , RESET_B_delayed , CLK_delayed ) ;
+$setuphold ( posedge CLK , posedge D , 0:0:0, 0:0:0, notifier , , cond0 , CLK_delayed , D_delayed ) ;
+$setuphold ( posedge CLK , negedge D , 0:0:0, 0:0:0, notifier , , cond0 , CLK_delayed , D_delayed ) ;
 endspecify
