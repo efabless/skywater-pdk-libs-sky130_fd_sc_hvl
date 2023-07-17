@@ -22,7 +22,7 @@ specify
 (posedge GATE => (Q : GATE ) ) = (0:0:0,0:0:0); // delays are tris,tfall
 $width ( posedge GATE &&& (RESET_B===1'b1) , 0:0:0, 0, notifier);
 $width (negedge RESET_B , 0:0:0 , 0 , notifier ) ;
-$recrem ( posedge RESET_B , negedge GATE , 0:0:0, 0:0:0, notifier , , , RESETB_delayed , GATE_delayed ) ;
-$setuphold ( negedge GATE , posedge D , 0:0:0, 0:0:0, notifier , , COND0 , GATE_delayed , D_delayed ) ;
-$setuphold ( negedge GATE , negedge D , 0:0:0, 0:0:0, notifier , , COND0 , GATE_delayed , D_delayed ) ;
+$recrem ( posedge RESET_B , negedge GATE , 0:0:0, 0:0:0, notifier , , , RESET_B_delayed , GATE_delayed ) ;
+$setuphold ( negedge GATE , posedge D , 0:0:0, 0:0:0, notifier , , cond0 , GATE_delayed , D_delayed ) ;
+$setuphold ( negedge GATE , negedge D , 0:0:0, 0:0:0, notifier , , cond0 , GATE_delayed , D_delayed ) ;
 endspecify
